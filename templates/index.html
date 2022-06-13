@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css"/>
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <h1 class="h3 mb-0 text-gray-800" style="font-weight: bold;">Data Town Dashboard</h1>
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- container-fluid 시작 -->
+                <div class="container-fluid"  style="padding-left: 100px; padding-right: 100px">
+
+                    <!-- 대회정보 Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800" style="font-weight: bold;">대회정보</h1>
+                    </div>
+
+                    <!-- 대회별현황, Basic, Total Content Row 시작-->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="card shadow mb-4">
+
+                                <!--card header 시작-->
+                                <div class="card-header py-3 d-flex flex-row align-items-center">
+                                    <h6 class="m-0 font-weight-bold text-primary">대회별 현황</h6>
+                                    <button type="button" class="btn btn-primary ml-3" id="dacon-basic-button">데이콘 Basic</button>
+                                    <button type="button" class="btn btn-success ml-3" id="total-competition-button">전체 경진대회</button>
+                                </div>
+                                <!--card header 끝-->
+
+                                <!--Basic & Total competition 시작-->
+                                <div class="card-body">
+                                    <div class="chart-area" id="competition-status">
+
+                                        <!-- Basic competition 정보 넣기위해 추가한 부분(시작)-->
+                                        <div class="row">
+                                            <!-- 경진대회 진행상황 확인1 -->
+                                            <div class="col-xl-3 col-md-6 mb-4" id="basic-first">
+                                                <div class="card border-left-info shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-s font-weight-bold text-info text-uppercase mb-1">{{basic.title.0}}</div>
+                                                                <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">{{basic.type.0}}</div>
+                                                                <div class="row no-gutters align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{basic.person.0}}명</div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="progress progress-sm mr-2">
+                                                                            <div class="progress-bar bg-info" role="progressbar"
+                                                                                style="width: {{basic.progress.0}}%" aria-valuenow="50" aria-valuemin="0"
+                                                                                aria-valuemax="100"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{basic.left.0}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- 경진대회 진행상황 확인2 -->
+                                            <div class="col-xl-3 col-md-6 mb-4" id="basic-second">
+                                                <div class="card border-left-info shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-s font-weight-bold text-info text-uppercase mb-1">{{basic.title.1}}</div>
+                                                                <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">{{basic.type.1}}</div>
+                                                                <div class="row no-gutters align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{basic.person.1}}명</div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="progress progress-sm mr-2">
+                                                                            <div class="progress-bar bg-info" role="progressbar"
+                                                                                style="width: {{basic.progress.1}}%" aria-valuenow="50" aria-valuemin="0"
+                                                                                aria-valuemax="100"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{basic.left.1}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- 경진대회 진행상황 확인3 -->
+                                            <div class="col-xl-3 col-md-6 mb-4" id="basic-third">
+                                                <div class="card border-left-info shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-s font-weight-bold text-info text-uppercase mb-1">{{basic.title.2}}</div>
+                                                                <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">{{basic.type.2}}</div>
+                                                                    <div class="row no-gutters align-items-center">
+                                                                        <div class="col-auto">
+                                                                            <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{basic.person.2}}명</div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="progress progress-sm mr-2">
+                                                                                <div class="progress-bar bg-info" role="progressbar"
+                                                                                    style="width: {{basic.progress.2}}%" aria-valuenow="50" aria-valuemin="0"
+                                                                                    aria-valuemax="100"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{basic.left.2}}</div>
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- 경진대회 진행상황 확인4 -->
+                                            <div class="col-xl-3 col-md-6 mb-4" id="basic-fourth">
+                                                <div class="card border-left-info shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-s font-weight-bold text-info text-uppercase mb-1">{{basic.title.3}}</div>
+                                                                <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">{{basic.type.3}}</div>
+                                                                    <div class="row no-gutters align-items-center">
+                                                                        <div class="col-auto">
+                                                                            <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{basic.person.3}}명</div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="progress progress-sm mr-2">
+                                                                                <div class="progress-bar bg-info" role="progressbar"
+                                                                                    style="width: {{basic.progress.3}}%" aria-valuenow="50" aria-valuemin="0"
+                                                                                    aria-valuemax="100"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{basic.left.3}}</div>
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Basic competition 정보 넣기위해 추가한 부분(끝)-->
+
+                                        <!-- Total competition 정보 넣기위해 추가한 부분(시작)-->
+                                        <div class="row">
+                                            <!-- 경진대회 진행상황 확인1 -->
+                                            <div class="col-xl-3 col-md-6 mb-4" id="total-first">
+                                                <div class="card border-left-success shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-s font-weight-bold text-success text-uppercase mb-1">{{total.title.4}}</div>
+                                                                <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">{{total.type.4}}</div>
+                                                                <div class="row no-gutters align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{total.person.4}}명</div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="progress progress-sm mr-2">
+                                                                            <div class="progress-bar bg-info" role="progressbar"
+                                                                                style="width: {{total.progress.4}}%" aria-valuenow="50" aria-valuemin="0"
+                                                                                aria-valuemax="100"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{total.left.4}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- 경진대회 진행상황 확인2 -->
+                                            <div class="col-xl-3 col-md-6 mb-4" id="total-second">
+                                                <div class="card border-left-success shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-s font-weight-bold text-success text-uppercase mb-1">{{total.title.5}}</div>
+                                                                <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">{{total.type.5}}</div>
+                                                                <div class="row no-gutters align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{total.person.5}}명</div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="progress progress-sm mr-2">
+                                                                            <div class="progress-bar bg-info" role="progressbar"
+                                                                                style="width: {{total.progress.5}}%" aria-valuenow="50" aria-valuemin="0"
+                                                                                aria-valuemax="100"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{total.left.5}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- 경진대회 진행상황 확인3 -->
+                                            <div class="col-xl-3 col-md-6 mb-4" id="total-third">
+                                                <div class="card border-left-success shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-s font-weight-bold text-success text-uppercase mb-1">{{total.title.6}}</div>
+                                                                <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">{{total.type.6}}</div>
+                                                                    <div class="row no-gutters align-items-center">
+                                                                        <div class="col-auto">
+                                                                            <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{total.person.6}}명</div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="progress progress-sm mr-2">
+                                                                                <div class="progress-bar bg-info" role="progressbar"
+                                                                                    style="width: {{total.progress.6}}%" aria-valuenow="50" aria-valuemin="0"
+                                                                                    aria-valuemax="100"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{total.left.6}}</div>
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- 경진대회 진행상황 확인4 -->
+                                            <div class="col-xl-3 col-md-6 mb-4" id="total-fourth">
+                                                <div class="card border-left-success shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-s font-weight-bold text-success text-uppercase mb-1">{{total.title.7}}</div>
+                                                                <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">{{total.type.7}}</div>
+                                                                    <div class="row no-gutters align-items-center">
+                                                                        <div class="col-auto">
+                                                                            <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{total.person.7}}명</div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="progress progress-sm mr-2">
+                                                                                <div class="progress-bar bg-info" role="progressbar"
+                                                                                    style="width: {{total.progress.7}}%" aria-valuenow="50" aria-valuemin="0"
+                                                                                    aria-valuemax="100"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">{{total.left.7}}</div>
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Total competition 정보 넣기위해 추가한 부분(끝)-->
+
+                                    </div>
+                                </div>
+                                <!--Basic & Total competition 끝-->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 대회별현황, Basic, Total Content Row 끝-->
+
+                    <!-- 채용공고 Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800" style="font-weight: bold;">채용공고</h1>
+                    </div>
+
+                    <!-- 채용공고 Content Row 시작-->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="card shadow mb-4">
+
+                                <div class="card-header py-3 d-flex flex-row align-items-center">
+                                    <h6 class="m-0 font-weight-bold text-primary">키워드</h6>
+                                    <button type="button" class="btn btn-primary ml-3" id="bigdata-button">빅데이터</button>
+                                    <button type="button" class="btn btn-success ml-3" id="ai-button">인공지능</button>
+                                </div>
+
+                                <div class="card-body">
+
+                                    <div class="chart-area" id="bigdata-job-list">
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category1_job_list.0['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category1_job_list.0['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category1_job_list.1['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category1_job_list.1['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category1_job_list.2['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category1_job_list.2['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category1_job_list.3['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category1_job_list.3['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category1_job_list.4['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category1_job_list.4['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category1_job_list.5['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category1_job_list.5['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category1_job_list.6['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category1_job_list.6['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category1_job_list.7['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category1_job_list.7['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category1_job_list.8['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category1_job_list.8['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category1_job_list.9['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category1_job_list.9['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category1_job_list.10['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category1_job_list.10['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="chart-area" id="ai-job-list">
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category2_job_list.0['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category2_job_list.0['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category2_job_list.1['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category2_job_list.1['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category2_job_list.2['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category2_job_list.2['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category2_job_list.3['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category2_job_list.3['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category2_job_list.4['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category2_job_list.4['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category2_job_list.5['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category2_job_list.5['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category2_job_list.6['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category2_job_list.6['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category2_job_list.7['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category2_job_list.7['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category2_job_list.8['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category2_job_list.8['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category2_job_list.9['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category2_job_list.9['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                        <div class="card shadow">
+                                            <div class="col-xl-auto py-1">
+                                                <a href="{{ category2_job_list.10['href'] }}"><h6 class="m-0 font-weight-bold text-primary">{{ category2_job_list.10['title'] }}</h6></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 채용공고 Content Row 끝-->
+
+                    <!-- 신규 채용공고 Trend Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800" style="font-weight: bold;">신규 채용공고 Trend</h1>
+                    </div>
+
+                    <!-- 신규 채용공고 Trend Content Row 시작-->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3 d-flex flex-row align-items-center">
+                                    <h6 class="m-0 font-weight-bold text-primary">키워드</h6>
+                                    <button type="button" class="btn btn-primary ml-3" id="bigdata-chart-button">빅데이터</button>
+                                    <button type="button" class="btn btn-success ml-3" id="ai-chart-button">인공지능</button>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area col-xl-auto" id="chart-trend_161" style="alignment: left">
+                                    </div>
+                                    <div class="chart-area col-xl-auto" id="chart-trend_162" style="alignment: left">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 신규 채용공고 Trend Content Row 끝-->
+
+                    <!-- 워드클라우드 Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800" style="font-weight: bold;">워드클라우드</h1>
+                    </div>
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h5>키워드: 빅데이터</h5>
+                    </div>
+
+                    <!-- 워드클라우드 Content Row 시작-->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="card shadow mb-4">
+
+                                <!--card header 시작-->
+                                <div class="card-header py-3 d-flex flex-row align-items-center">
+                                    <h6 class="m-0 font-weight-bold text-primary">연도별</h6>
+                                    <button type="button" class="btn btn-primary ml-3" id="2016-button">2016</button>
+                                    <button type="button" class="btn btn-success ml-3" id="2017-button">2017</button>
+                                    <button type="button" class="btn btn-primary ml-3" id="2018-button">2018</button>
+                                    <button type="button" class="btn btn-success ml-3" id="2019-button">2019</button>
+                                    <button type="button" class="btn btn-primary ml-3" id="2020-button">2020</button>
+                                    <button type="button" class="btn btn-success ml-3" id="2021-button">2021</button>
+                                    <button type="button" class="btn btn-primary ml-3" id="2022-button">2022</button>
+                                </div>
+                                <!--card header 끝-->
+
+                                <!--card body 시작-->
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" id="2016_nouns"
+                                             src="http://3.35.139.16:5000/img/2016_nouns.png"/>
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" id="2017_nouns"
+                                             src="http://3.35.139.16:5000/img/2017_nouns.png"/>
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" id="2018_nouns"
+                                             src="http://3.35.139.16:5000/img/2018_nouns.png"/>
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" id="2019_nouns"
+                                             src="http://3.35.139.16:5000/img/2019_nouns.png"/>
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" id="2020_nouns"
+                                             src="http://3.35.139.16:5000/img/2020_nouns.png"/>
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" id="2021_nouns"
+                                             src="http://3.35.139.16:5000/img/2021_nouns.png"/>
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" id="2022_nouns"
+                                             src="http://3.35.139.16:5000/img/2022_nouns.png"/>
+                                    </div>
+                                </div>
+                                <!--card body 끝-->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 워드클라우드 Content Row 끝-->
+
+                </div>
+                <!-- container-fluid 끝-->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Yoonho Kim 2022</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!--    아래와 같이 필요한 library(script)를 import 해야 사용할 수 있다-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
+    <script src="js/chart-job.js"></script>
+    <script src="js/chart-trend.js"></script>
+    <script src="js/chart-wordcloud.js"></script>
+    <script src="js/chart-competition.js"></script>
+
+</body>
+</html>
