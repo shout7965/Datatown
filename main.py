@@ -5,7 +5,7 @@ from nltk.stem import PorterStemmer
 from flask import Flask, render_template, jsonify, send_file, redirect
 from flask.globals import request
 from flask_cors import CORS
-from wordcloud import WordCloud
+# from wordcloud import WordCloud
 from crawl_basic import get_basic
 from crawl_total import get_total
 from chart_builder import make_chart
